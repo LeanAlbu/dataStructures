@@ -66,17 +66,6 @@ func (h *heap) remove() int {
 	return 0
 }
 
-
-
-
-
-
-
-
-
-
-
-
 func main() {
 	myHeap := newHeap()
 	myHeap.insert(10)
