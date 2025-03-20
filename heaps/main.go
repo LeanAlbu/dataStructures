@@ -28,18 +28,44 @@ func (h *heap) insert(data int) {
 	h.heapifyUp()
 }
 
-func (h *heap) heapifyDown() {
-	index := 0
-	lastIndex := len(h.data) - 1
-	for index < lastIndex {
-		left := 2*index+1
-		right := 2*index+2
+func (h *heap) heapifyDown () {
+	index := len(h.data)-1
+	lenght := len(h.data)
+	for{
 		largest := index
-		if left <= lastIndex && h.data[left] > h.data[largest] {
+		left := 2*index + 1
+		right := 2*index + 2
+
+		if left < lenght && h.data[left] > h.data[largest]{
 			largest = left
-		}else{
-			largest = index
 		}
+		if right < lenght && h.data[right] > h.data[largest]{
+			largest = right
+		}
+		if largest != index{
+			h.data[index], h.data[largest] = h.data[largest], h.data[index]
+			index = largest
+		}else{
+			break
+		}
+	}
+}
+
+func (h *heap) remove() int {
+	if len(h.data) == 0 {
+		return -1
+	}
+	max := h.data[0]
+	last :- len(h.data)-1
+	h.data[0] = h.data[last]
+	h.data = h.data[:last]
+
+	if len(data.h) > 0{
+		h.heapifyDown(0)
+	}
+	return 0
+}
+
 
 
 
