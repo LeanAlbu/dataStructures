@@ -28,8 +28,8 @@ func (h *heap) insert(data int) {
 	h.heapifyUp()
 }
 
-func (h *heap) heapifyDown(index int) {  // Changed to take index as parameter
-	length := len(h.data)               // Fixed typo 'lenght' to 'length'
+func (h *heap) heapifyDown(index int) { // Changed to take index as parameter
+	length := len(h.data) // Fixed typo 'lenght' to 'length'
 	for {
 		largest := index
 		left := 2*index + 1
@@ -55,14 +55,14 @@ func (h *heap) remove() int {
 		return -1
 	}
 	max := h.data[0]
-	last := len(h.data) - 1           // Fixed syntax error in variable declaration
+	last := len(h.data) - 1 // Fixed syntax error in variable declaration
 	h.data[0] = h.data[last]
 	h.data = h.data[:last]
 
-	if len(h.data) > 0 {              // Fixed typo 'data.h' to 'h.data'
-		h.heapifyDown(0)              // Pass 0 as starting index
+	if len(h.data) > 0 { // Fixed typo 'data.h' to 'h.data'
+		h.heapifyDown(0) // Pass 0 as starting index
 	}
-	return max                        // Return the removed max value instead of 0
+	return max // Return the removed max value instead of 0
 }
 
 func main() {
